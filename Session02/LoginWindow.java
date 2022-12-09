@@ -32,8 +32,7 @@ public class LoginWindow extends JFrame implements ActionListener {
      */
     private JButton btnLogin, btnExit;
     private JLabel lblUserID, lblUserPwd;
-    private JTextField txtUID;
-    private JPasswordField txtUPWD;
+    private JTextField txtUID, txtUPWD;
 
 
     // Constructor
@@ -55,7 +54,7 @@ public class LoginWindow extends JFrame implements ActionListener {
         lblUserPwd = new JLabel("User Password:", SwingConstants.CENTER); // Label-02 -> User Password:
 
         txtUID = new JTextField(""); // TextField-01 -> Input for User ID
-        txtUPWD = new JPasswordField(""); // TextField-02 -> Input for User Password
+        txtUPWD = new JTextField(""); // TextField-02 -> Input for User Password
 
         txtUID.setHorizontalAlignment(SwingConstants.CENTER);
         txtUPWD.setHorizontalAlignment(SwingConstants.CENTER);
@@ -131,10 +130,10 @@ public class LoginWindow extends JFrame implements ActionListener {
             }
             else
                 JOptionPane.showMessageDialog(this, "User ID or password incorrect!");
+        }
 
         if (e.getSource() == btnExit)
             System.exit(0);
-        }
     }
 
 }
