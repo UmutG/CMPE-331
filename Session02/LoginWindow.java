@@ -120,7 +120,7 @@ public class LoginWindow extends JFrame implements ActionListener {
         // If exit button has clicked, simply close the program
 
         if (e.getSource() == btnLogin){
-            if (txtUID.getText() == user_name && txtUPWD.getText() == user_pass){
+            if (txtUID.getText().equals(user_name) && txtUPWD.getText().equals(user_pass)){
                 JOptionPane.showMessageDialog(this, "Welcome back, " + user_name + "!");
                 this.dispose();
                 JFrame blankFrame = new JFrame("Blank Frame");
