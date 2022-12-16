@@ -4,7 +4,6 @@
  * @author: Gökay Tan, 122202114
  * @author: Burak Seymen, 117202076
  * @author: Nasser M.F. Sammoudi, 119202079
- *
  */
 
 import java.awt.GridLayout;
@@ -14,16 +13,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class LoginWindow extends JFrame implements ActionListener {
-
-	// main method for testing the application
-	public static void main(String[] args) {
-		new LoginWindow();
-	}
-
-	// Customized user ID and password for checking the functionality
-	String user_name = "gokaytan";
-	String user_pass = "122202114";
+public class MenuWindow extends JFrame implements ActionListener {
 
 	/*
 	 * Graphical User Interface (GUI) Elements
@@ -31,12 +21,12 @@ public class LoginWindow extends JFrame implements ActionListener {
 	 * ! PLEASE RENAME THE OBJECTS ACCORDING TO THEIR PURPOSES ! ! YOU CAN ADD MORE
 	 * ELEMENTS IF IT IS NECESSARY !
 	 */
-	private JButton btnLogin, btnExit;
-	private JLabel lblUserID, lblUserPwd;
-	private JTextField txtUID, txtUPWD;
+	private JButton btnAddCart, btnExit;
+	private JLabel lblBookName, lblAuthorName;
+	private JTextField txtBookName, txtBookAuthorName;
 
 	// Constructor
-	public LoginWindow() {
+	public MenuWindow() {
 
 		this.initializeGUI();
 		this.setWindowProperties(3, 2);
@@ -48,19 +38,19 @@ public class LoginWindow extends JFrame implements ActionListener {
 	 * Initialize GUI elements. If it is necessary, you can add more elements.
 	 */
 	public void initializeGUI() {
-		lblUserID = new JLabel("User ID:", SwingConstants.CENTER); // Label-01 -> User ID:
-		lblUserPwd = new JLabel("User Password:", SwingConstants.CENTER); // Label-02 -> User Password:
+		lblBookName = new JLabel("Book Name:", SwingConstants.CENTER); // Label-01 -> User ID:
+		lblAuthorName = new JLabel("Book Author:", SwingConstants.CENTER); // Label-02 -> User Password:
 
-		txtUID = new JTextField(""); // TextField-01 -> Input for User ID
-		txtUPWD = new JTextField(""); // TextField-02 -> Input for User Password
+		txtBookName = new JTextField(""); // TextField-01 -> Input for User ID
+		txtBookAuthorName = new JTextField(""); // TextField-02 -> Input for User Password
 
-		txtUID.setHorizontalAlignment(SwingConstants.CENTER);
-		txtUPWD.setHorizontalAlignment(SwingConstants.CENTER);
+		txtBookName.setHorizontalAlignment(SwingConstants.CENTER);
+		txtBookAuthorName.setHorizontalAlignment(SwingConstants.CENTER);
 
-		btnLogin = new JButton("Login"); // Button-01 -> Login
+		btnAddCart = new JButton("Add to Cart"); // Button-01 -> Login
 		btnExit = new JButton("Exit"); // Button-02 -> Exit
 
-		btnLogin.addActionListener(this);
+		btnAddCart.addActionListener(this);
 		btnExit.addActionListener(this);
 	}
 
@@ -82,13 +72,13 @@ public class LoginWindow extends JFrame implements ActionListener {
 	 * more elements.
 	 */
 	public void addGUIElementsToFrame() {
-		this.add(lblUserID);
-		this.add(txtUID);
+		this.add(lblBookName);
+		this.add(txtBookName);
 
-		this.add(lblUserPwd);
-		this.add(txtUPWD);
+		this.add(lblAuthorName);
+		this.add(txtBookAuthorName);
 
-		this.add(btnLogin);
+		this.add(btnAddCart);
 		this.add(btnExit);
 	}
 
@@ -114,14 +104,10 @@ public class LoginWindow extends JFrame implements ActionListener {
 		// are correct
 		// If exit button has clicked, simply close the program
 
-		if (e.getSource() == btnLogin) {
-			if (txtUID.getText().equals(user_name) && txtUPWD.getText().equals(user_pass)) {
-				JOptionPane.showMessageDialog(this, "Welcome back, " + user_name + "!");
-				this.dispose();
-				new MenuWindow();
-			} else
-				JOptionPane.showMessageDialog(this, "User ID or password incorrect!");
+		if (e.getSource() == btnAddCart) { 
+			JOptionPane.showMessageDialog(this, txtBookName.getText() + " written by " + txtBookAuthorName.getText() + " added to your cart!");
 		}
+			
 
 		if (e.getSource() == btnExit)
 			System.exit(0);
